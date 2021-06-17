@@ -12,8 +12,11 @@ function criarBotaoDelete(){
     return botaoDelete
 }
 
-function deletarTarefa(){
-    console.log('Deleta');
+function deletarTarefa(evento){
+    const botaoDeleteClicado = evento.target
+    const itemDaLista = botaoDeleteClicado.parentElement
+
+    itemDaLista.remove()
 }
 
 function criarTarefa(evento){
