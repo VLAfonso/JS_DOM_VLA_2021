@@ -194,5 +194,9 @@ body {
 }
 
 .lista_atividades{
-    margin: 2px;
+    margin-left: 2px;
+}
+
+.tarefa_concluida{
+    text-decoration: line-through;
 }
