@@ -1,61 +1,61 @@
-( () => {
-const novaTarefa = document.querySelector('[data-form-button]')
-const inputTarefa = document.querySelector('[data-form-input]')
+(() => {
+    const novaTarefa = document.querySelector('[data-form-button]') //variavel infos botao
 
-function criarBotaoDelete(){
-    const botaoDelete = document.createElement('span')
-    botaoDelete.innerText = "x"
-    botaoDelete.classList = "close"
+    function criarBotaoDelete() { //func criar botao apagar
+        const botaoDelete = document.createElement('span') //criar botao span + add texto + add classe
+        botaoDelete.innerText = "x"
+        botaoDelete.classList = "close"
 
-    botaoDelete.addEventListener('click', deletarTarefa)
+        botaoDelete.addEventListener('click', deletarTarefa) //verificar botaoDelete clicado, se sim, direciona func deletarTarefa
 
-    return botaoDelete
-}
+        return botaoDelete
+    }
 
-function criarBotaoConcluir(){
-    const botaoConcluir = document.createElement('input')
-    botaoConcluir.setAttribute('type','checkbox')
-    botaoConcluir.classList = 'form-check-input'
+    function criarBotaoConcluir() { //func criar botao concluir
+        const botaoConcluir = document.createElement('input') //criar o botao input + add tipo + add classe
+        botaoConcluir.setAttribute('type', 'checkbox')
+        botaoConcluir.classList = 'form-check-input'
 
-    botaoConcluir.addEventListener('click', concluirTarefa)
+        botaoConcluir.addEventListener('click', concluirTarefa) //verificar botaoConcluir clicado, se sim, direciona func concluirTarefa
 
-    return botaoConcluir
-}
+        return botaoConcluir //retorna botao
+    }
 
-function deletarTarefa(evento){
-    const botaoDeleteClicado = evento.target
-    const itemDaLista = botaoDeleteClicado.parentElement
+    function deletarTarefa(evento) { //func apagar tarefa
+        const botaoDeleteClicado = evento.target //seleciona tarefa desejada
+        const itemDaLista = botaoDeleteClicado.parentElement
 
-    itemDaLista.remove()
-}
+        itemDaLista.remove() //apaga tarefa desejada
+    }
 
-function concluirTarefa(evento){
-    const botaoConcluirClicado = evento.target
-    const itemDaListaConcluido = botaoConcluirClicado.parentElement
-    itemDaListaConcluido.classList.toggle('tarefa_concluida')
-}
+    function concluirTarefa(evento) { //func concluir tarefa
+        const botaoConcluirClicado = evento.target //seleciona tarefa desejada e muda classe
+        const itemDaListaConcluido = botaoConcluirClicado.parentElement
+        itemDaListaConcluido.classList.toggle('tarefa_concluida')
+    }
 
-function criarTarefa(evento){
-    evento.preventDefault()
+    function criarTarefa(evento) { //func add tarefa na tela
+        evento.preventDefault()
 
-    const valorTarefa = inputTarefa.value
-    const listaDeTarefas = document.querySelector('[data-task]')
+        const inputTarefa = document.querySelector('[data-form-input]') //variaveis infos input, texto tarefa e lista (onde texto será add)
+        const valorTarefa = inputTarefa.value
+        const listaDeTarefas = document.querySelector('[data-task]')
 
-    novaLabel = document.createElement('label')
-    novaLabel.innerText = `- ${valorTarefa}`
-    novaLabel.className = "form-check-label"
+        novaLabel = document.createElement('label') //criar label + add texto + add classe
+        novaLabel.innerText = `- ${valorTarefa}`
+        novaLabel.className = "form-check-label"
 
-    novoItem = document.createElement('li')
+        novoItem = document.createElement('li') //criar item da tarefa
 
-    novoItem.appendChild(criarBotaoConcluir())
-    novoItem.appendChild(novaLabel)
-    novoItem.appendChild(criarBotaoDelete())
+        novoItem.appendChild(criarBotaoConcluir()) //add botao concluir, label e botao delete no item
+        novoItem.appendChild(novaLabel)
+        novoItem.appendChild(criarBotaoDelete())
 
-    listaDeTarefas.appendChild(novoItem)
+        listaDeTarefas.appendChild(novoItem) //add item na lista
 
-    inputTarefa.value = ""
+        inputTarefa.value = "" //apagar escritos input
 
-}
+    }
 
-novaTarefa.addEventListener('click', criarTarefa)
+    novaTarefa.addEventListener('click', criarTarefa) //verificar novaTarefa clicado, se sim, direciona func criarTarefa
 })()

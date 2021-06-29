@@ -193,10 +193,10 @@ body {
     color: white;
 }
 
-.lista_atividades{
+.lista_atividades{ /*posicionamento lista*/
     margin-left: 2px;
 }
 
-.tarefa_concluida{
+.tarefa_concluida{ /*riscar tarefa concluida*/
     text-decoration: line-through;
 }
