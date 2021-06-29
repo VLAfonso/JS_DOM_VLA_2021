@@ -1,5 +1,6 @@
 # Lista de Tarefas - js_dom_ds_2021
 > Projeto didático para Javascript (DOM) desenvolvido pela turma de Desenvolvimento de Sistemas 2021 da ETE FMC.
+
 > Registra, em forma de lista, atividades que o usúario desejar, podendo adicionar diversas tarefas, demarcar as que já foram feitas e excluir as quiser.
 ## Como acessar
 - Baixe todos os arquivos disponíveis nesse repositório. Há duas principais formas de se realizar isso:
